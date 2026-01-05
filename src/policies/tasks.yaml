@@ -1,0 +1,15 @@
+- id: task-validation
+  scope: task
+  effect: deny
+  priority: 80
+  conditions: "context.data == null || context.data === ''"
+  actions:
+    - block: "Input data validation failed"
+
+- id: task-output-sanitization
+  scope: task
+  effect: allow
+  priority: 85
+  conditions: "true"
+  actions:
+    - notify: "Output sanitization applied"

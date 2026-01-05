@@ -1,0 +1,45 @@
+# Task-Level Policies
+- id: "policy-task-read"
+  name: "Allow Read Tasks"
+  description: "All users can perform read-only tasks"
+  scope: "task"
+  effect: "allow"
+  priority: 30
+  condition: "'payload.action' === 'read'"
+  actions: ["log"]
+
+- id: "policy-task-write-admin"
+  name: "Admin Write Tasks"
+  description: "Only admins can write/update data"
+  scope: "task"
+  effect: "deny"
+  priority: 90
+  condition: "'payload.action' === 'write' && 'context.userRole' !== 'admin'"
+  actions: ["log", "deny"]
+
+- id: "policy-task-delete-restricted"
+  name: "Restrict Delete Operations"
+  description: "Delete operations require explicit approval"
+  scope: "task"
+  effect: "deny"
+  priority: 150
+  condition: "'payload.action' === 'delete'"
+  actions: ["log", "require-approval", "notify-admin"]
+
+- id: "policy-task-timeout"
+  name: "Task Timeout Management"
+  description: "Enforce timeout limits on long-running tasks"
+  scope: "task"
+  effect: "allow"
+  priority: 20
+  condition: "'metadata.timeout' <= 300000"
+  actions: ["log"]
+
+- id: "policy-task-retry"
+  name: "Limit Retry Attempts"
+  description: "Maximum 3 retries per task"
+  scope: "task"
+  effect: "deny"
+  priority: 40
+  condition: "'metadata.retryCount' > 3"
+  actions: ["log", "notify"]

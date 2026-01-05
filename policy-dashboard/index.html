@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Policy Management Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+    <nav class="navbar">
+        <div class="logo">
+            <span class="logo-icon">🛡️</span>
+            <h1>AI Policy <span class="highlight">Engine</span></h1>
+        </div>
+        <div class="nav-actions">
+            <div class="search-box">
+                <input type="text" id="task-filter" placeholder="Filter tasks or agents...">
+            </div>
+            <button id="run-simulation" class="btn-primary">Run Simulation</button>
+        </div>
+    </nav>
+
+    <main class="dashboard-grid">
+        <aside class="agents-panel">
+            <div class="panel-header">
+                <h2>Active Agents</h2>
+                <span class="badge" id="agent-count">0</span>
+            </div>
+            <div id="agents-list" class="scrollable">
+                <!-- Agent cards rendered here -->
+            </div>
+        </aside>
+
+        <section class="main-content">
+            <div class="panel-header">
+                <h2>Live Tasks & Policy Results</h2>
+                <div class="status-legend">
+                    <span class="dot pending"></span> Running
+                    <span class="dot allowed"></span> Allowed
+                    <span class="dot denied"></span> Denied
+                </div>
+            </div>
+            <div id="tasks-grid" class="tasks-grid scrollable">
+                <!-- Task cards rendered here -->
+            </div>
+        </section>
+
+        <footer class="audit-panel">
+            <div class="panel-header">
+                <h2>Audit Trail & Enforcement Logs</h2>
+                <button id="clear-logs" class="btn-text">Clear Logs</button>
+            </div>
+            <div id="audit-log" class="log-container scrollable">
+                <div class="log-entry system">System initialized. Waiting for agent requests...</div>
+            </div>
+        </footer>
+    </main>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>

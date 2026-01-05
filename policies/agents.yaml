@@ -1,0 +1,32 @@
+- id: support-agent-restrictions
+  name: "Support Agent Restrictions"
+  type: access_control
+  scope: agent
+  target: "support_bot_01"
+  effect: deny
+  priority: 500
+  actions: ["block_action"]
+  rules:
+    logic: OR
+    conditions:
+      - field: action.type
+        operator: equals
+        value: "database_write"
+      - field: action.type
+        operator: equals
+        value: "system_config"
+
+- id: admin-agent-privileges
+  name: "Admin Agent Privileges"
+  type: access_control
+  scope: agent
+  target: "admin_bot_01"
+  effect: allow
+  priority: 500
+  actions: ["audit_log"]
+  rules:
+    logic: AND
+    conditions:
+      - field: context.mfa_verified
+        operator: equals
+        value: true

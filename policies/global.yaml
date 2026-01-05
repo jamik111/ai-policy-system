@@ -1,0 +1,50 @@
+- id: global-ethics-ban
+  name: "Global User Ban List"
+  type: access_control
+  scope: global
+  effect: deny
+  priority: 1000
+  actions: ["log_violation", "alert_admin"]
+  rules:
+    logic: OR
+    conditions:
+      - field: user.id
+        operator: equals
+        value: "banned_user_123"
+      - field: user.role
+        operator: equals
+        value: "guest_restricted"
+
+- id: global-content-safety
+  name: "Global Content Safety"
+  type: content_filter
+  scope: global
+  effect: deny
+  priority: 900
+  actions: ["block_content"]
+  rules:
+    logic: OR
+    conditions:
+      - field: input
+        operator: contains
+        value: "malicious_script"
+      - field: input
+        operator: regex
+        value: "(?i)(password|secret_key)\\s*[:=]\\s*\\w+"
+
+- id: soft-language-warning
+  name: "Soft Language Monitor"
+  type: content_filter
+  scope: global
+  effect: warn
+  priority: 500
+  actions: ["flag_content"]
+  rules:
+    logic: OR
+    conditions:
+      - field: input
+        operator: contains
+        value: "aggressive"
+      - field: input
+        operator: contains
+        value: "urgent"

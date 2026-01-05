@@ -1,0 +1,68 @@
+'use client';
+
+import { useDashboard } from '../context/DashboardContext';
+import TaskCard from '../components/TaskCard';
+import AgentCard from '../components/AgentCard';
+import AnalyticsChart from '../components/AnalyticsChart';
+import AuditLogComponent from '../components/AuditLog';
+
+export default function DashboardPage() {
+  const dashboard = useDashboard();
+
+  if (!dashboard) {
+    return <div className="p-10 text-gray-500">Dashboard not ready</div>;
+  }
+
+  const { logs, agents } = dashboard;
+
+  return (
+    <main className="min-h-screen bg-gray-50 dark:bg-gray-900 p-6">
+      <div className="max-w-7xl mx-auto space-y-10">
+
+        {/* Header */}
+        <header>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
+            AI Policy Dashboard
+          </h1>
+          <p className="text-gray-600 dark:text-gray-400">
+            Monitor agent activity and policy enforcement
+          </p>
+        </header>
+
+        {/* Metrics (STATIC SAFE DEMO) */}
+        <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <AnalyticsChart title="Tasks Logged" />
+          <AnalyticsChart title="Agents Online" />
+          <AnalyticsChart title="Audit Events" />
+        </section>
+
+        {/* Agents */}
+        <section>
+          <h2 className="text-xl font-semibold mb-4 text-white">Agents</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {agents.map((agent) => (
+              <AgentCard key={agent.id} agent={agent} />
+            ))}
+          </div>
+        </section>
+
+        {/* Tasks */}
+        <section>
+          <h2 className="text-xl font-semibold mb-4 text-white">Recent Tasks</h2>
+          <div className="space-y-3">
+            {logs.slice(0, 5).map((log) => (
+              <TaskCard key={log.id} task={log} />
+            ))}
+          </div>
+        </section>
+
+        {/* Audit */}
+        <section>
+          <h2 className="text-xl font-semibold mb-4 text-white">Audit Log</h2>
+          <AuditLogComponent />
+        </section>
+
+      </div>
+    </main>
+  );
+}

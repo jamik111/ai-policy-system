@@ -1,0 +1,187 @@
+/*!****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[5].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[5].oneOf[7].use[3]!./app/components/TaskCard.module.css ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************/
+/* Width Utility Classes */
+.TaskCard_w0__013Px {
+    width: 0%;
+}
+
+.TaskCard_w5__TSUem {
+    width: 5%;
+}
+
+.TaskCard_w10__fHaPL {
+    width: 10%;
+}
+
+.TaskCard_w15__3HYIK {
+    width: 15%;
+}
+
+.TaskCard_w20__4Gu74 {
+    width: 20%;
+}
+
+.TaskCard_w25___8yx4 {
+    width: 25%;
+}
+
+.TaskCard_w30__QCZKh {
+    width: 30%;
+}
+
+.TaskCard_w35__Izuaq {
+    width: 35%;
+}
+
+.TaskCard_w40__Ta3Hm {
+    width: 40%;
+}
+
+.TaskCard_w45__7gI9t {
+    width: 45%;
+}
+
+.TaskCard_w50__3zuZ2 {
+    width: 50%;
+}
+
+.TaskCard_w55__d6coN {
+    width: 55%;
+}
+
+.TaskCard_w60__l_Vc9 {
+    width: 60%;
+}
+
+.TaskCard_w65__L_8cJ {
+    width: 65%;
+}
+
+.TaskCard_w70__wmGtr {
+    width: 70%;
+}
+
+.TaskCard_w75__ccfm1 {
+    width: 75%;
+}
+
+.TaskCard_w80__IQ3G5 {
+    width: 80%;
+}
+
+.TaskCard_w85__dEm_0 {
+    width: 85%;
+}
+
+.TaskCard_w90__PXTV7 {
+    width: 90%;
+}
+
+.TaskCard_w95__btWLE {
+    width: 95%;
+}
+
+.TaskCard_w100__w_ifl {
+    width: 100%;
+}
+/*!*****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[5].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[5].oneOf[7].use[3]!./app/components/AgentCard.module.css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************/
+.AgentCard_progressBarContainer__4SYrC {
+    margin-top: 0.25rem;
+    height: 0.25rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.AgentCard_progressBar___UGww {
+    height: 100%;
+    transition: width 0.3s ease-in-out;
+}
+
+/* Width Utility Classes */
+.AgentCard_w0__aYJJa {
+    width: 0%;
+}
+
+.AgentCard_w5__ZxIB1 {
+    width: 5%;
+}
+
+.AgentCard_w10__qYPLe {
+    width: 10%;
+}
+
+.AgentCard_w15__qt8wM {
+    width: 15%;
+}
+
+.AgentCard_w20__MABgC {
+    width: 20%;
+}
+
+.AgentCard_w25__1Zdut {
+    width: 25%;
+}
+
+.AgentCard_w30__v_SJD {
+    width: 30%;
+}
+
+.AgentCard_w35__DJlH_ {
+    width: 35%;
+}
+
+.AgentCard_w40__B9ROj {
+    width: 40%;
+}
+
+.AgentCard_w45__lQQtL {
+    width: 45%;
+}
+
+.AgentCard_w50__j9qGF {
+    width: 50%;
+}
+
+.AgentCard_w55__WsE_A {
+    width: 55%;
+}
+
+.AgentCard_w60__nYB4I {
+    width: 60%;
+}
+
+.AgentCard_w65__QcB1X {
+    width: 65%;
+}
+
+.AgentCard_w70__p9rzF {
+    width: 70%;
+}
+
+.AgentCard_w75__ZfIeo {
+    width: 75%;
+}
+
+.AgentCard_w80__P_Y_3 {
+    width: 80%;
+}
+
+.AgentCard_w85__wLVMn {
+    width: 85%;
+}
+
+.AgentCard_w90__97Gdi {
+    width: 90%;
+}
+
+.AgentCard_w95__xOYQH {
+    width: 95%;
+}
+
+.AgentCard_w100__Vwr2V {
+    width: 100%;
+}

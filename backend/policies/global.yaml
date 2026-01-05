@@ -1,0 +1,54 @@
+# Global Safety & Ethics Policies
+- id: "policy-ethics-001"
+  name: "Restrict Confidential Data Access"
+  description: "Prevent access to confidential information"
+  scope: "global"
+  effect: "deny"
+  priority: 100
+  condition: "'payload.confidential' === true && 'context.userRole' !== 'admin'"
+  actions: ["log", "alert", "notify-admin"]
+
+- id: "policy-ethics-002"
+  name: "Block External API Calls from Users"
+  description: "Only admins can make external API calls"
+  scope: "global"
+  effect: "deny"
+  priority: 95
+  condition: "'payload.externalCall' === true && 'context.userRole' === 'user'"
+  actions: ["log", "block"]
+
+- id: "policy-ethics-003"
+  name: "Allow Privileged Operations for Admins"
+  description: "Admins have full access to operations"
+  scope: "global"
+  effect: "allow"
+  priority: 200
+  condition: "'context.userRole' === 'admin'"
+  actions: ["log"]
+
+- id: "policy-ethics-004"
+  name: "Restrict Resource-Intensive Tasks"
+  description: "Limit resource-intensive operations during peak hours"
+  scope: "global"
+  effect: "deny"
+  priority: 50
+  condition: "'payload.resource' === 'compute-heavy' && 'context.timestamp' % 86400000 > 28800000"
+  actions: ["queue", "log"]
+
+- id: "policy-ethics-005"
+  name: "Allow Standard User Tasks"
+  description: "Standard users can execute approved tasks"
+  scope: "global"
+  effect: "allow"
+  priority: 10
+  condition: "'context.userRole' === 'user' && 'payload.action' === 'read'"
+  actions: ["log"]
+
+- id: "policy-default-deny"
+  name: "Default Deny Policy"
+  description: "Deny all access by default"
+  scope: "global"
+  effect: "deny"
+  priority: 0
+  condition: "true"
+  actions: ["log", "deny"]

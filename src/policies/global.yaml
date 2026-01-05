@@ -1,0 +1,15 @@
+- id: global-ethics
+  scope: global
+  effect: allow
+  priority: 100
+  conditions: "context.user !== 'banned_user' && !context.input.includes('illegal')"
+  actions:
+    - notify: "Global ethics check passed"
+
+- id: safety-guardrail
+  scope: global
+  effect: deny
+  priority: 110
+  conditions: "context.input.toLowerCase().includes('sensitive')"
+  actions:
+    - block: "Sensitive data input detected at global level"

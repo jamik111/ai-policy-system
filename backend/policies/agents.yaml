@@ -1,0 +1,36 @@
+# Agent-Level Policies
+- id: "policy-agent-research-bot"
+  name: "Research Bot Permissions"
+  description: "Policies for research-focused agent"
+  scope: "agent"
+  effect: "allow"
+  priority: 80
+  condition: "'agent.id' === 'agent-research-001' && 'payload.action' === 'search'"
+  actions: ["log"]
+
+- id: "policy-agent-compute-bot"
+  name: "Compute Bot Execution Limits"
+  description: "Limit parallel tasks for compute agent"
+  scope: "agent"
+  effect: "deny"
+  priority: 75
+  condition: "'agent.id' === 'agent-compute-001' && 'metadata.priority' > 3"
+  actions: ["queue", "log"]
+
+- id: "policy-agent-monitor"
+  name: "Monitor Agent Access"
+  description: "Allow monitoring agent to read all logs"
+  scope: "agent"
+  effect: "allow"
+  priority: 100
+  condition: "'agent.id' === 'agent-monitor-001' && 'payload.action' === 'read-logs'"
+  actions: ["log"]
+
+- id: "policy-agent-rate-limit"
+  name: "Agent Rate Limiting"
+  description: "Limit requests per second per agent"
+  scope: "agent"
+  effect: "deny"
+  priority: 60
+  condition: "false"
+  actions: ["throttle", "log"]

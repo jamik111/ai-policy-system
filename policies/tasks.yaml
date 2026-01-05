@@ -1,0 +1,32 @@
+- id: data-export-limits
+  name: "Data Export Rows Limit"
+  type: rate_limit
+  scope: task
+  target: "data_export"
+  effect: deny
+  priority: 100
+  actions: ["limit_rows"]
+  rules:
+    logic: AND
+    conditions:
+      - field: task.parameters.row_count
+        operator: gt
+        value: 1000
+
+- id: sql-injection-prevention
+  name: "SQL Injection Prevention"
+  type: content_filter
+  scope: task
+  target: "db_query"
+  effect: deny
+  priority: 900
+  actions: ["block_query", "alert_security"]
+  rules:
+    logic: OR
+    conditions:
+      - field: task.query
+        operator: regex
+        value: "(?i)(DROP|DELETE)\\s+TABLE"
+      - field: task.query
+        operator: regex
+        value: "(?i)OR\\s+1=1"

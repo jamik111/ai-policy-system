@@ -1,0 +1,15 @@
+- id: agent-permissions
+  scope: agent
+  effect: allow
+  priority: 90
+  conditions: "['data-processing', 'researcher'].includes(context.agentType)"
+  actions:
+    - execute: true
+
+- id: agent-rate-limit
+  scope: agent
+  effect: deny
+  priority: 95
+  conditions: "context.usageToday > 1000"
+  actions:
+    - block: "Rate limit exceeded for agent"
